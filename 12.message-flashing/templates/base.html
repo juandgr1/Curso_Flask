@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title%}{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/wind.ico')}}">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
+
+</head>
+    <body>
+
+    {% with messages = get_flashed_messages(category_filter=["success"]) %}
+{% if messages %}
+<ul>
+    {% for  message in messages %}
+    <li class="success">
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+        {% block content%}
+        {% endblock %}
+    </body>
+</html>
